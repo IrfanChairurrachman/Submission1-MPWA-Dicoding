@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="description" content="Submission 1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hydrogen</title>
+  <link rel="stylesheet" href="css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="images/hydrogen.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#7b1fa2"/>
+  <style>
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .rotate {
+      animation: rotation 2s infinite linear;
+    }
+
+    @keyframes rotation {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }  
+  </style>
+</head>
+<body>
+  <!-- Navigasi -->
+  <nav class="purple darken-2" role="navigation">
+    <div class="nav-wrapper container">
+      <a href="#" class="brand-logo" id="logo-container">Hydrogen</a>
+      <a href="#" class="sidenav-trigger" data-target="nav-mobile">☰</a>
+      <ul class="topnav right hide-on-med-and-down"></ul>
+      <ul class="sidenav" id="nav-mobile"></ul>
+    </div>
+  </nav>
+  <!-- Akhir Navigasi -->
+  <div class="container" id="body-content"></div>
+  <script src="js/materialize.min.js"></script>
+  <script src="js/navigasi.js"></script>
+  <script>
+    // REGISTER SERVICE WORKER
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function() {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then(function() {
+              console.log("Pendaftaran ServiceWorker berhasil");
+            })
+            .catch(function() {
+              console.log("Pendaftaran ServiceWorker gagal");
+            });
+        });
+      } else {
+        console.log("ServiceWorker belum didukung browser ini.");
+      }
+  </script>
+</body>
+</html>
